@@ -24,15 +24,6 @@ async def send_photo(message):
     await bot.send_photo(chat_id, photo=photo)
 
 
-@dp.message_handler()
-async def echo_message(msg: types.Message):
-    if msg.text.isdigit():
-        echo_text = int(msg.text) ** 2
-    else:
-        echo_text = msg.text
-    await bot.send_message(msg.chat.id, echo_text)
-
-
 @dp.message_handler(commands=['quiz'])
 async def quiz_1(message: types.Message) -> None:
     markup = InlineKeyboardMarkup()
@@ -61,6 +52,14 @@ async def quiz_1(message: types.Message) -> None:
     )
 
 
+
+@dp.message_handler()
+async def echo_message(msg: types.Message):
+    if msg.text.isdigit():
+        echo_text = int(msg.text) ** 2
+    else:
+        echo_text = msg.text
+    await bot.send_message(msg.chat.id, echo_text)
 @dp.callback_query_handler(text="next_button_1")
 async def quiz_2(callback: types.CallbackQuery):
     quiestion = "Who it Johnny Sins?"
