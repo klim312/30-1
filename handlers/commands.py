@@ -1,7 +1,7 @@
+import emoji
 from aiogram import types, Dispatcher
 from config import bot
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-import emoji
 
 
 async def start_command(message: types.Message) -> None:

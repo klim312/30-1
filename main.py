@@ -1,14 +1,15 @@
 from aiogram import executor
 import logging
 from config import dp
-from handlers import commands, callback, extra, admin
-import dice
+from handlers import commands, callback, extra, dice, admin, fsm_mentor
 
 commands.register_handlers_commands(dp)
 callback.register_handlers_callback(dp)
 admin.register_handlers_admin(dp)
 extra.register_handlers_extra(dp)
 dice.register_handlers_1commands(dp)
+fsm_mentor.register_handlers_commands(dp)
+
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)

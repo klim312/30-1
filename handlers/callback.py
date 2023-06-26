@@ -45,7 +45,6 @@ async def quiz_3(callback: types.CallbackQuery):
         "1983",
    ]
 
-# await bot.send_poll()
     await callback.message.answer_poll(
         question=quiestion,
         options=answers,

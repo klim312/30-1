@@ -6,7 +6,7 @@ import random
 async def ban(message: types.Message):
     if message.chat.type != "private":
         if message.from_user.id not in ADMINs:
-            await message.answer("вы не обладаете правами Администратора!!")
+            await message.answer("вы не обладаете правами Администратора!")
         elif not message.reply_to_message:
             await message.answer("Команда должна быть ответом на сообщение!")
         else:

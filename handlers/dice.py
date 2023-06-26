@@ -3,7 +3,6 @@ from config import bot
 
 
 async def bot_dice(message: types.Message):
-
         await bot.send_message(message.chat.id, f"запуск {message.from_user.full_name}\n"
                                                 f"первый кидает бот --> ")
 
@@ -35,4 +34,4 @@ async def bot_dice(message: types.Message):
 
 
 def register_handlers_1commands(dp: Dispatcher):
-    dp.register_message_handler(bot_dice,commands=['dice'])
+    dp.register_message_handler(bot_dice, commands=['dice'])

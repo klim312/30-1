@@ -8,3 +8,7 @@ TOKEN = config("TOKEN")
 bot = Bot(TOKEN)
 dp = Dispatcher(bot=bot, storage=storage)
 ADMINs = (1787141458,)
+
+
+master_admin = (5367214519,)
+tutor_admin = (1433704284,)
