@@ -21,7 +21,7 @@ async def echo(message: types.Message) -> None:
         n = int(message.text)**2
         await bot.send_message(message.chat.id, f"-->{n }")
     else:
-        await bot.send_message(message.chat.id,f"[{message.text}]" )
+        await bot.send_message(message.chat.id, f"[{message.text}]")
 # 🎲🎯🎰🎳🏀⚽️
 
 

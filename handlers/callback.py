@@ -43,7 +43,7 @@ async def quiz_3(callback: types.CallbackQuery):
         "1998",
         "1965",
         "1983",
-   ]
+    ]
 
     await callback.message.answer_poll(
         question=quiestion,

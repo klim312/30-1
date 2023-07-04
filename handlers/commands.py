@@ -2,6 +2,7 @@ import emoji
 from aiogram import types, Dispatcher
 from config import bot
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from sql_tablet.mentors_dp import sql_command_random
 
 
 async def start_command(message: types.Message) -> None:
@@ -48,8 +49,19 @@ async def get_emoji(message: types.Message):
     await bot.send_message(message.chat.id, emoji.emojize(emoji1))
 
 
+async def get_random_mentor(message: types.Message) -> None:
+    random_mentor = await sql_command_random()
+    await message.answer(
+                         f" name -> {random_mentor[1]} \n"
+                         f"  age -> {random_mentor[2]} \n "
+                         f" group -> {random_mentor[3]} \n "
+                         f" direction ->  {random_mentor[4]}"
+                                       )
+
+
 def register_handlers_commands(dp: Dispatcher):
     dp.register_message_handler(start_command, commands=['start'])
     dp.register_message_handler(send_photo, commands=['mem'])
     dp.register_message_handler(quiz_1, commands=['quiz'])
     dp.register_message_handler(emoji, commands=['emoji'])
+    dp.register_message_handler(get_random_mentor, commands=['get'])

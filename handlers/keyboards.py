@@ -11,6 +11,7 @@ mem_button = KeyboardButton("/mem")
 emoji_button = KeyboardButton("/emoji")
 dice_button = KeyboardButton("/dice")
 reg_button = KeyboardButton("/reg")
+
 start_markup.add(
     start_button,
     quiz_button,
@@ -19,17 +20,20 @@ start_markup.add(
     dice_button,
     reg_button,
 )
+cancel_button = KeyboardButton("отмена")
 cancel_markup = ReplyKeyboardMarkup(
     resize_keyboard=True,
     one_time_keyboard=True,
+).add(
+    cancel_button
 )
-cancel_button = KeyboardButton("Отмена")
-cancel_markup.add(cancel_button)
+
+
 submit_markup = ReplyKeyboardMarkup(
     resize_keyboard=True,
     one_time_keyboard=True,
 ).add(
     KeyboardButton("ДА"),
-    KeyboardButton("Снова"),
+    KeyboardButton("СНОВА"),
     cancel_button
 )
