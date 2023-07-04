@@ -11,6 +11,7 @@ mem_button = KeyboardButton("/mem")
 emoji_button = KeyboardButton("/emoji")
 dice_button = KeyboardButton("/dice")
 reg_button = KeyboardButton("/reg")
+kino_button = KeyboardButton("/kino")
 
 start_markup.add(
     start_button,
@@ -19,6 +20,7 @@ start_markup.add(
     emoji_button,
     dice_button,
     reg_button,
+    kino_button
 )
 cancel_button = KeyboardButton("отмена")
 cancel_markup = ReplyKeyboardMarkup(

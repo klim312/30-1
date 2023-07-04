@@ -3,6 +3,8 @@ import logging
 from config import dp, bot, ADMINs
 from handlers import commands, callback, extra, dice, admin, fsm_mentor, mentor_admin, message
 from sql_tablet.mentors_dp import sql_create
+from x_new import new_functional
+
 
 commands.register_handlers_commands(dp)
 callback.register_handlers_callback(dp)
@@ -11,6 +13,7 @@ extra.register_handlers_extra(dp)
 dice.register_handlers_1commands(dp)
 fsm_mentor.register_handlers_commands(dp)
 mentor_admin.register_handlers_admin(dp)
+new_functional.register_handlers_2commands(dp)
 
 
 async def on_startup(dp):

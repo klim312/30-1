@@ -32,7 +32,7 @@ async def set_scheduler():
     scheduler = AsyncIOScheduler(timezone="Asia/Bishkek")
     scheduler.add_job(
           goodbye,
-          CronTrigger(hour=00, minute=00, start_date=datetime.datetime.now()), text=f"->")
+          CronTrigger(hour=23, minute=59, start_date=datetime.datetime.now()), text=f"->")
 
     scheduler.add_job(hello, IntervalTrigger(seconds=150, start_date=datetime.datetime.now()))
 
