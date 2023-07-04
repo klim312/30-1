@@ -3,6 +3,8 @@ from aiogram import types, Dispatcher
 from config import bot
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from sql_tablet.mentors_dp import sql_command_random
+from _parset._parset1 import parser
+from aiogram.types import ParseMode
 
 
 async def start_command(message: types.Message) -> None:
@@ -56,7 +58,22 @@ async def get_random_mentor(message: types.Message) -> None:
                          f"  age -> {random_mentor[2]} \n "
                          f" group -> {random_mentor[3]} \n "
                          f" direction ->  {random_mentor[4]}"
-                                       )
+    )
+
+
+async def parsser_wheels(message: types.Message):
+    items = parser()
+    for item in items:
+        await bot.send_message(
+            message.from_user.id,
+            f"{item['url']}"
+            f"{item['title']}\n"
+            f"цена - {item['price']}\n",  reply_markup=InlineKeyboardMarkup().add(
+                InlineKeyboardButton("Смотреть", url=item['url'])
+            ),
+            parse_mode=ParseMode.HTML
+
+            )
 
 
 def register_handlers_commands(dp: Dispatcher):
@@ -65,3 +82,4 @@ def register_handlers_commands(dp: Dispatcher):
     dp.register_message_handler(quiz_1, commands=['quiz'])
     dp.register_message_handler(emoji, commands=['emoji'])
     dp.register_message_handler(get_random_mentor, commands=['get'])
+    dp.register_message_handler(parsser_wheels, commands=['news'])
