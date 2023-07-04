@@ -6,7 +6,7 @@ from sql_tablet.mentors_dp import sql_command_all, sql_command_delete, sql_comma
 
 async def delete_data(message: types.Message):
     if message.from_user.id not in ADMINs and tutor_admin and master_admin:
-        await message.answer("Ты не мой босс!")
+        await message.answer("вы не обладаете правами Администратора!")
     else:
         mentors = await sql_command_all()
         for i in mentors:
